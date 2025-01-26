@@ -1,0 +1,146 @@
+/* App.css */
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "Arial", sans-serif;
+  color: #ffffff; /* Ensures text is visible on dark background */
+  background: linear-gradient(135deg, #1e1e2f, #121212); /* Dark gradient */
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  background: linear-gradient(135deg, #2a2a40, #1a1a27);
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.header-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.header-subtitle {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  color: #d1d1e0; /* Subtle color for the subtitle */
+}
+
+.section {
+  background: linear-gradient(135deg, #1f1f30, #131322);
+  padding: 2rem 1rem;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.section-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+.contact-list li {
+  margin: 0.5rem 0;
+}
+
+.social-link {
+  color: #7aa5f7;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.social-link:hover {
+  color: #b0c7ff;
+}
+
+.projects-section {
+  padding: 2rem 1rem;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.project-card {
+  background: linear-gradient(135deg, #29293a, #1d1d2e);
+  border-radius: 1rem;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.project-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.project-description {
+  font-size: 1rem;
+  color: #b0b0d6;
+  margin-bottom: 1rem;
+}
+
+.project-button {
+  background: #5a5abf;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.project-button:hover {
+  background: #6c6cd1;
+}
+
+.goal-subtitle {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.goal-list {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+.goal-list li {
+  margin: 0.5rem 0;
+}
+
+.footer {
+  background: linear-gradient(135deg, #2e2e3f, #20202f);
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.footer-content {
+  font-size: 0.9rem;
+  color: #a0a0c0;
+}
