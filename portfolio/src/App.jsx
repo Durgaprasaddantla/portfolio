@@ -49,7 +49,10 @@ const App = () => {
             <li>Phone: 7396979744</li>
             <li>
               Socials:{" "}
-              <a href="#" className="social-link">
+              <a
+                href="www.linkedin.com/in/dantla-durga-prasad"
+                className="social-link"
+              >
                 LinkedIn
               </a>
             </li>
