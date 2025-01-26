@@ -1,132 +1,189 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { Card, CardContent } from "./components/ui/Card";
-import { Button } from "./components/ui/Button";
-import "./App.css"; // Import the custom CSS file
+import React, { useState } from "react";
+import "./App.css";
 
-const App = () => {
+const Header = () => {
+  const [menuActive, setMenuActive] = useState(false);
+
   return (
-    <div className="app-container">
-      {/* Cover Page */}
-      <header className="header">
-        <div className="header-content">
-          <motion.h1
-            initial={{ opacity: 0, y: -50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="header-title"
-          >
-            Portfolio of Dantla Durga Prasad
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="header-subtitle"
-          >
-            "Creating innovative solutions through code and creativity."
-          </motion.p>
-        </div>
-      </header>
-
-      {/* Personal Information */}
-      <motion.section
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-        className="section"
-      >
-        <div className="container">
-          <h2 className="section-title">About Me</h2>
-          <p className="section-text">
-            I am a passionate Software developer with expertise in building
-            responsive web applications. My strengths include problem-solving,
-            attention to detail, and creativity.
-          </p>
-          <ul className="contact-list">
-            <li>Email: durgaprasaddantla123@gmail.com</li>
-            <li>Phone: 7396979744</li>
+    <header>
+      <div className="container">
+        <h1 className="logo">Portfolio</h1>
+        <nav>
+          <ul className={`nav-links ${menuActive ? "active" : ""}`}>
             <li>
-              Socials:{" "}
-              <a
-                href="www.linkedin.com/in/dantla-durga-prasad"
-                className="social-link"
-              >
-                LinkedIn
-              </a>
+              <a href="#home">Home</a>
+            </li>
+            <li>
+              <a href="#about">About</a>
+            </li>
+            <li>
+              <a href="#projects">Projects</a>
+            </li>
+            <li>
+              <a href="#contact">Contact</a>
             </li>
           </ul>
-        </div>
-      </motion.section>
-
-      {/* Projects Showcase */}
-      <motion.section
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-        className="projects-section"
-      >
-        <div className="container">
-          <h2 className="section-title">Projects</h2>
-          <div className="projects-grid">
-            {["Field Sales Tracking System"].map((project) => (
-              <motion.div
-                key={project}
-                whileHover={{ scale: 1.05 }}
-                className="project-card"
-              >
-                <Card>
-                  <CardContent>
-                    <h3 className="project-title">{project}</h3>
-                    <p className="project-description">
-                      A system designed to improve field sales operations with
-                      real-time tracking and reporting features.
-                    </p>
-                    <Button className="project-button">View Details</Button>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </motion.section>
-
-      {/* Goals */}
-      <motion.section
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-        className="section"
-      >
-        <div className="container">
-          <h2 className="section-title">Goals</h2>
-          <h3 className="goal-subtitle">Short-Term Goals</h3>
-          <ul className="goal-list">
-            <li>Master advanced ReactJS.</li>
-            <li>Build and deploy a personal blog site.</li>
-            <li>Improve my time management skills.</li>
-          </ul>
-
-          <h3 className="goal-subtitle">Long-Term Goals</h3>
-          <ul className="goal-list">
-            <li>Become a lead software developer.</li>
-            <li>Launch a tech startup.</li>
-            <li>Contribute actively to open-source projects.</li>
-          </ul>
-        </div>
-      </motion.section>
-
-      {/* Footer */}
-      <footer className="footer">
-        <div className="footer-content">
-          <p>&copy; 2025 Dantla Durga Prasad. All rights reserved.</p>
-        </div>
-      </footer>
-    </div>
+          <button
+            id="menu-toggle"
+            className="hamburger"
+            onClick={() => setMenuActive(!menuActive)}
+          >
+            ☰
+          </button>
+        </nav>
+      </div>
+    </header>
   );
 };
+
+const Hero = () => (
+  <section id="home" className="hero">
+    <div className="hero-content">
+      <h2>
+        Welcome to <span className="animated-text">My Portfolio</span>
+      </h2>
+      <p>
+        Hi! I am DANTlA DURGA PRASAD, a computer science student at JNTU GV
+        passionate about coding, design, and technology!
+      </p>
+      <a href="#about" className="btn">
+        Know More
+      </a>
+    </div>
+  </section>
+);
+
+const About = () => (
+  <section id="about" className="about">
+    <h2>About Me</h2>
+    <p>
+      I am a computer science enthusiast skilled in web development, algorithms,
+      and problem-solving. I enjoy building innovative solutions.
+    </p>
+  </section>
+);
+
+const Projects = () => {
+  const projectList = [
+    {
+      title: "Portfolio Website",
+      description:
+        "Responsive portfolio showcasing technical skills, education and projects.",
+    },
+    {
+      title: "Field Sales Tracking System",
+      description:
+        "Designed a frontend application using React.js and made Real-Time Monitoring, Expense and Attendance Tracking, Auto-generate Report.",
+    },
+    {
+      title: "YouTube Clone Frontend",
+      description:
+        "Designed a clone for YouTube frontend using HTML and CSS as a static webpage.",
+    },
+  ];
+
+  return (
+    <section id="projects" className="projects">
+      <h2>Projects</h2>
+      <div className="project-grid">
+        {projectList.map((project, index) => (
+          <div className="project-card" key={index}>
+            <h3>{project.title}</h3>
+            <p>{project.description}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+const Contact = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert("Your message has been sent!");
+    e.target.reset();
+  };
+
+  return (
+    <section id="contact" className="contact">
+      <h2>Contact Me</h2>
+      <form id="contactForm" onSubmit={handleSubmit}>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Your Name"
+          required
+        />
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Your Email"
+          required
+        />
+        <textarea
+          id="message"
+          name="message"
+          placeholder="Your Message"
+          rows="4"
+          required
+        ></textarea>
+        <button type="submit" className="btn">
+          Send
+        </button>
+      </form>
+      <div className="social-icons">
+        <a
+          href="https://www.instagram.com/your_profile"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+        >
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"
+            alt="Instagram icon"
+          />
+        </a>
+        <a href="mailto:durgaprasaddantla123@gmail.com" aria-label="Email">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/732/732200.png"
+            alt="Email icon"
+          />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/durga-prasad-dantla"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
+        >
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
+            alt="LinkedIn icon"
+          />
+        </a>
+      </div>
+    </section>
+  );
+};
+
+const Footer = () => (
+  <footer>
+    <p>&copy; Copyright @ 2025, All rights reserved.</p>
+  </footer>
+);
+
+const App = () => (
+  <div>
+    <Header />
+    <main>
+      <Hero />
+      <About />
+      <Projects />
+      <Contact />
+    </main>
+    <Footer />
+  </div>
+);
 
 export default App;
